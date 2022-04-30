@@ -1,0 +1,321 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Ms",
+        "first": "Maeva",
+        "last": "Gagné"
+      },
+      "location": {
+        "street": {
+          "number": 3976,
+          "name": "Brock Rd"
+        },
+        "city": "Lafontaine",
+        "state": "British Columbia",
+        "country": "Canada",
+        "postcode": "H0Z 8B3",
+        "coordinates": {
+          "latitude": "-59.1693",
+          "longitude": "147.9283"
+        },
+        "timezone": {
+          "offset": "+2:00",
+          "description": "Kaliningrad, South Africa"
+        }
+      },
+      "email": "maeva.gagne@example.com",
+      "login": {
+        "uuid": "b5b86381-1acb-4d8c-b04f-fbe68751ad78",
+        "username": "yellowwolf756",
+        "password": "derrick",
+        "salt": "OXRZHX0b",
+        "md5": "abd37c6b468557e60db28c56e671919f",
+        "sha1": "48f6cc8b2566243e62555e69502680e5a6ff9bbc",
+        "sha256": "5d2470e10b6e6afb59ecb42931573e9e95ef5a5d41157f7a2dfcb414ac6b8572"
+      },
+      "dob": {
+        "date": "1995-03-09T03:31:22.458Z",
+        "age": 27
+      },
+      "registered": {
+        "date": "2008-12-21T16:51:51.162Z",
+        "age": 14
+      },
+      "phone": "430-684-5344",
+      "cell": "847-382-2078",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/52.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/52.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/52.jpg"
+      },
+      "nat": "CA"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Romain",
+        "last": "Bouman"
+      },
+      "location": {
+        "street": {
+          "number": 398,
+          "name": "Akoleienstraat"
+        },
+        "city": "Nieuw-Vennep",
+        "state": "Overijssel",
+        "country": "Netherlands",
+        "postcode": 17740,
+        "coordinates": {
+          "latitude": "42.9819",
+          "longitude": "-77.5672"
+        },
+        "timezone": {
+          "offset": "+5:30",
+          "description": "Bombay, Calcutta, Madras, New Delhi"
+        }
+      },
+      "email": "romain.bouman@example.com",
+      "login": {
+        "uuid": "c1b009b1-4264-4129-898b-6dff69960880",
+        "username": "orangeostrich471",
+        "password": "mikey1",
+        "salt": "qizrgiJX",
+        "md5": "3678a619e8df1c7e91e1b3b05402731d",
+        "sha1": "554846f26d8ed5e01cb358a496bfa819f53fe920",
+        "sha256": "a7826ac40af352d568fdf92749c8b3c165db0302b52381c47378aa5a111f2a34"
+      },
+      "dob": {
+        "date": "1988-10-24T08:06:07.683Z",
+        "age": 34
+      },
+      "registered": {
+        "date": "2019-03-06T21:19:53.805Z",
+        "age": 3
+      },
+      "phone": "(366)-305-5024",
+      "cell": "(854)-628-3776",
+      "id": {
+        "name": "BSN",
+        "value": "95564517"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/94.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/94.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/94.jpg"
+      },
+      "nat": "NL"
+    },
+    {
+      "gender": "female",
+      "name": {
+        "title": "Mrs",
+        "first": "Poppy",
+        "last": "Thompson"
+      },
+      "location": {
+        "street": {
+          "number": 994,
+          "name": "Moray Place"
+        },
+        "city": "Christchurch",
+        "state": "Otago",
+        "country": "New Zealand",
+        "postcode": 56611,
+        "coordinates": {
+          "latitude": "58.4727",
+          "longitude": "149.4421"
+        },
+        "timezone": {
+          "offset": "-12:00",
+          "description": "Eniwetok, Kwajalein"
+        }
+      },
+      "email": "poppy.thompson@example.com",
+      "login": {
+        "uuid": "db701819-851a-4be4-915a-02746513cd3d",
+        "username": "redbird238",
+        "password": "fossil",
+        "salt": "ugOS5tee",
+        "md5": "1d095ab2bcc81a84cd68f8b3bd049425",
+        "sha1": "06989d1cffde2d5e3189570dfca45a00c5511be0",
+        "sha256": "d115e2819c87e15dc2149be583131b745f17f90d7b3d41aa5687a133429b8449"
+      },
+      "dob": {
+        "date": "1968-12-09T10:21:50.258Z",
+        "age": 54
+      },
+      "registered": {
+        "date": "2007-07-24T13:06:35.550Z",
+        "age": 15
+      },
+      "phone": "(302)-782-8687",
+      "cell": "(832)-323-0646",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/39.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/39.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/39.jpg"
+      },
+      "nat": "NZ"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Brett",
+        "last": "Dunne"
+      },
+      "location": {
+        "street": {
+          "number": 1300,
+          "name": "School Lane"
+        },
+        "city": "Letterkenny",
+        "state": "Donegal",
+        "country": "Ireland",
+        "postcode": 91322,
+        "coordinates": {
+          "latitude": "17.4201",
+          "longitude": "-65.1748"
+        },
+        "timezone": {
+          "offset": "-4:00",
+          "description": "Atlantic Time (Canada), Caracas, La Paz"
+        }
+      },
+      "email": "brett.dunne@example.com",
+      "login": {
+        "uuid": "1342b82e-cec3-49e8-a31c-52324b394241",
+        "username": "bigrabbit434",
+        "password": "charles1",
+        "salt": "X6VnK6FP",
+        "md5": "c7cc2f924a7ab14591a483ccbf5f27eb",
+        "sha1": "9008bebadb3d1527b9efe113b15f8181e04bfa64",
+        "sha256": "c1d63de08da1df5645dfa37af921a428e35c0fb491cbbdbc0e6a7395115a9765"
+      },
+      "dob": {
+        "date": "1954-07-27T16:18:13.154Z",
+        "age": 68
+      },
+      "registered": {
+        "date": "2006-04-22T05:57:18.711Z",
+        "age": 16
+      },
+      "phone": "021-726-2120",
+      "cell": "081-679-3585",
+      "id": {
+        "name": "PPS",
+        "value": "3453917T"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/15.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/15.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/15.jpg"
+      },
+      "nat": "IE"
+    },
+    {
+      "gender": "female",
+      "name": { "title": "Miss", "first": "Sara", "last": "Davidson" },
+      "location": {
+        "street": { "number": 8368, "name": "Manor Road" },
+        "city": "Bangor",
+        "state": "South Yorkshire",
+        "country": "United Kingdom",
+        "postcode": "ID9 7NQ",
+        "coordinates": { "latitude": "11.7166", "longitude": "73.6277" },
+        "timezone": {
+          "offset": "+1:00",
+          "description": "Brussels, Copenhagen, Madrid, Paris"
+        }
+      },
+      "email": "sara.davidson@example.com",
+      "login": {
+        "uuid": "d327d60c-7232-454d-87e8-38d70b5c1012",
+        "username": "lazyduck566",
+        "password": "valdez",
+        "salt": "knixp1aD",
+        "md5": "878d2c5b4a5f7c95a47c1e76b973e05a",
+        "sha1": "742519b792d646e4c34b5f6440b659564d2da30a",
+        "sha256": "9d9db864330f26df3bea9303b2007d41e429b6ede0b4a762e497d69996d7ef73"
+      },
+      "dob": { "date": "1989-01-03T00:07:29.448Z", "age": 33 },
+      "registered": { "date": "2010-04-06T21:54:21.297Z", "age": 12 },
+      "phone": "016974 12360",
+      "cell": "0779-689-960",
+      "id": { "name": "NINO", "value": "NX 81 19 11 M" },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/3.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/3.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/3.jpg"
+      },
+      "nat": "GB"
+    },
+    {
+      "gender": "male",
+      "name": {
+        "title": "Mr",
+        "first": "Osório",
+        "last": "da Luz"
+      },
+      "location": {
+        "street": {
+          "number": 9930,
+          "name": "Rua Minas Gerais "
+        },
+        "city": "Ji-Paraná",
+        "state": "Sergipe",
+        "country": "Brazil",
+        "postcode": 17017,
+        "coordinates": {
+          "latitude": "-77.9726",
+          "longitude": "-10.7049"
+        },
+        "timezone": {
+          "offset": "-11:00",
+          "description": "Midway Island, Samoa"
+        }
+      },
+      "email": "osorio.daluz@example.com",
+      "login": {
+        "uuid": "c40f67e1-faa1-45c0-9671-70f07faf3aef",
+        "username": "heavybutterfly532",
+        "password": "hahaha",
+        "salt": "0PQduXaI",
+        "md5": "fad62d01c24b9479fc98588ab3f7dfa6",
+        "sha1": "5841369adc1a45041fccc052f54fc18d7119a6d6",
+        "sha256": "2d4e3920e6d17c6095038c7dc3285a10c3c6f49f15c79dd30df47219c1d91a64"
+      },
+      "dob": {
+        "date": "1945-10-27T19:27:48.718Z",
+        "age": 77
+      },
+      "registered": {
+        "date": "2019-08-24T01:04:15.543Z",
+        "age": 3
+      },
+      "phone": "(49) 6926-9948",
+      "cell": "(98) 0948-7030",
+      "id": {
+        "name": "",
+        "value": null
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/3.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/3.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/3.jpg"
+      },
+      "nat": "BR"
+    }
+  ]
+}
