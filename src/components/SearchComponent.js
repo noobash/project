@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import MovieComponent from "./MovieComponent";
+import ScanComponent from "./ScanComponent";
+import ModalComponent from "./ModalComponent"
 import MovieInfoComponent from "./MovieInfoComponent";
-import { API_KEY } from "../App";
+import PatientInfoComponent from "./PatientInfoComponent";
 import People from "./user.json";
+import { GiHamburgerMenu } from "react-icons/gi"
+import { db } from "../fire";
+
 
 const Container = styled.div`
   display: flex;
@@ -39,7 +43,7 @@ const SearchIcon = styled.img`
   width: 32px;
   height: 32px;
 `;
-const MovieImage = styled.img`
+const ScanImage = styled.img`
   width: 48px;
   height: 48px;
   margin: 15px;
@@ -52,7 +56,7 @@ const SearchInput = styled.input`
   outline: none;
   margin-left: 15px;
 `;
-const MovieListContainer = styled.div`
+const ScanListContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -61,10 +65,61 @@ const MovieListContainer = styled.div`
   justify-content: space-evenly; ;
 `;
 const Placeholder = styled.img`
-  width: 120px;
-  height: 120px;
-  margin: 150px;
+  width: 100px;
+  height: 100px;
+  margin-top: 120px;
+  margin-bottom: 5px;
   opacity: 50%;
+`;
+
+const DropdownContent = styled.div`
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 98px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+`;
+
+const NavDropdown = styled.div`
+  float: left;
+  overflow: hidden;
+
+  &:hover {
+    background-color: #2980b9;
+  }
+  &:hover ${DropdownContent} {
+    display: block;
+  }
+`;
+
+const DropdownButton = styled.button`
+  font-size: 16px;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+`;
+
+const DropdownContentA = styled.a`
+  font-size: 12px;
+  float: none;
+  color: black;
+  padding: 12px 10px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+
+  &:hover {
+    background-color: #ddd;
+    cursor: pointer;
+  }
+`;
+
+const LogoDiv = styled.div`
+  visibility: ${props => props.vis};
 `;
 
 const getRandomPerson = () => {
@@ -80,12 +135,14 @@ const SearchComponent = (props) => {
   const [selectedMovie, onMovieSelect] = useState();
 
   const [timeoutId, updateTimeoutId] = useState();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [showLogo, setShowLogo] = useState(true);
+  const [patientData, updatePatientData] = useState(null);
 
   const fetchData = async (searchString) => {
-    // const response = await Axios.get(
-    //     `https://www.omdbapi.com/?s=${searchString}&apikey=${API_KEY}`,
-    // );
     const path = "/Data/";
+    updatePatientData(null);
+    setShowLogo(true);
     let images = [];
     if (searchString === "mri") {
       const cur_path = path + "MRI/";
@@ -99,6 +156,21 @@ const SearchComponent = (props) => {
         let x = cur_path + i + ".png";
         images.push(x);
       }
+    } else if(searchString.length > 0) {
+      const patientsRecord = db.collection("Patients_Record");  
+      console.log(searchString);
+      patientsRecord.where("name","==",searchString).limit(1).get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            setShowLogo(false);
+            updatePatientData(doc.data());
+          });
+        })
+        .catch((error) => {
+          console.log("Error getting documents: ", error);
+        });
     }
     updateMovieList(images);
   };
@@ -111,11 +183,10 @@ const SearchComponent = (props) => {
     updateTimeoutId(timeout);
   };
   return (
-    <>
     <Container>
       <Header>
         <AppName>
-          <MovieImage src="/react-doc-app/doc-icon.png" />
+          <ScanImage src="/react-doc-app/doc-icon.png" />
           Doc App
         </AppName>
         <SearchBox>
@@ -126,19 +197,36 @@ const SearchComponent = (props) => {
             onChange={onTextChange}
           />
         </SearchBox>
+          <NavDropdown >
+          <DropdownButton>Menu <GiHamburgerMenu></GiHamburgerMenu></DropdownButton>
+            <DropdownContent >
+              <DropdownContentA onClick={() => {setModalOpen(true); setShowLogo(false);}}>Add Patient</DropdownContentA>
+              <DropdownContentA onClick={handleLogout}>LogOut</DropdownContentA>
+            </DropdownContent>
+          </NavDropdown>
       </Header>
+      {modalOpen && <ModalComponent setOpenModal={setModalOpen} setShowLogo={setShowLogo} />}
       {selectedMovie && (
         <MovieInfoComponent
           selectedMovie={selectedMovie}
           onMovieSelect={onMovieSelect}
         />
       )}
-      <MovieListContainer>
+      {patientData && <PatientInfoComponent 
+        name={patientData.name}
+        id={patientData.id}
+        age={patientData.age}
+        weight={patientData.weight}
+        gender={patientData.gender}
+        bloodGroup={patientData.blood_group}
+        diagonosis={patientData.diagonosis}
+        />}
+      <ScanListContainer>
         {movieList?.length ? (
           movieList.map((movie) => {
             const person = getRandomPerson();
             return (
-              <MovieComponent
+              <ScanComponent
                 key={movie}
                 movie={movie}
                 onMovieSelect={onMovieSelect}
@@ -149,17 +237,13 @@ const SearchComponent = (props) => {
             );
           })
         ) : (
-          <div style={{ alignContent: "center", justifyContent: "center" }}>
-            Search using patient name or artifacts
+          <LogoDiv vis={showLogo? "visible":"hidden"} style={{display:"flex", flexDirection:"column", alignItems:"center", verticalAlign:"middle" }}>
             <Placeholder src="/react-doc-app/doc-icon.png" />
-          </div>
+            <h6 style={{marginLeft:"auto", marginRight:"auto", opacity:"50%"}}>Search using patient name or artifacts</h6>
+          </LogoDiv>
         )}
-      </MovieListContainer>
+      </ScanListContainer>
     </Container>
-    <div id= "myDiv">
-    <button onClick={handleLogout}>Logout</button>
-    </div>
-    </>
   );
 };
 

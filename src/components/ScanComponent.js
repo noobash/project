@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const MovieContainer = styled.div`
+const ScanContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -36,10 +36,10 @@ const MovieInfo = styled.span`
   text-transform: capitalize;
   text-overflow: ellipsis;
 `;
-const MovieComponent = (props) => {
+const ScanComponent = (props) => {
   const Poster = props.movie;
   return (
-    <MovieContainer
+    <ScanContainer
     // onClick={() => {
     //   props.onMovieSelect(imdbID);
     //   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -85,7 +85,7 @@ const MovieComponent = (props) => {
         <MovieInfo>Year : {Year}</MovieInfo>
         <MovieInfo>Type : {Type}</MovieInfo>
       </InfoColumn> */}
-    </MovieContainer>
+    </ScanContainer>
   );
 };
-export default MovieComponent;
+export default ScanComponent;
