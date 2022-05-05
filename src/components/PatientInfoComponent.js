@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   AiOutlineCheckCircle,
@@ -6,6 +6,7 @@ import {
   AiOutlineCloseCircle,
 } from "react-icons/ai";
 import { BsGenderFemale, BsGenderMale } from "react-icons/bs";
+import PeopleList from "./people.json";
 
 import {
   List,
@@ -96,15 +97,22 @@ function HDraw({ title, children }) {
 }
 
 const PatientInfo = (props) => {
-  const { name, id, age, gender, bloodGroup, weight, diagonosis } = {
-    id: 2,
-    name: "Amit",
-    age: 23,
-    gender: "female",
-    bloodGroup: "O -ve",
-    weight: 56,
-  };
-  return (
+  const [patient, setPatient] = useState({});
+  const [loading, setLoading] = useState(null);
+  const patientID = window.location.toString().split("/").slice(-1);
+
+  useEffect(() => {
+    setLoading(true);
+    const thisGuy = PeopleList.filter((user) => {
+      return user.id === patientID[0];
+    });
+    thisGuy.length > 0 && setPatient(thisGuy[0]);
+    setLoading(false);
+  });
+
+  return loading ? (
+    "Loading user data"
+  ) : (
     <Grid
       h="200px"
       templateRows="repeat(2, 1fr)"
@@ -114,8 +122,9 @@ const PatientInfo = (props) => {
       <GridItem rowSpan={2} colSpan={1} align={"center"} pt={5}>
         <Image
           boxSize="150px"
-          src="https://bit.ly/dan-abramov"
-          alt="Dan Abramov"
+          // src="https://thispersondoesnotexist.com/image"
+          src={patient.img}
+          alt="NAme"
         />
       </GridItem>
       <GridItem colSpan={2}>
@@ -133,22 +142,22 @@ const PatientInfo = (props) => {
             <Tbody>
               <Tr>
                 <Td>DoctorAssigned</Td>
-                <Td>Dname</Td>
+                <Td>{patient.doctorName}</Td>
               </Tr>
               <Tr>
                 <Td>Name</Td>
-                <Td>{name}</Td>
+                <Td>{patient.name}</Td>
               </Tr>
               <Tr>
                 <Td>Age</Td>
-                <Td>{age}</Td>
+                <Td>{patient.age}</Td>
               </Tr>
               <Tr>
                 <Td>Gender</Td>
                 <Td>
                   <HStack>
-                    {gender}
-                    {gender === "female" ? (
+                    {patient.gender}
+                    {patient.gender === "female" ? (
                       <BsGenderFemale />
                     ) : (
                       <BsGenderMale />
@@ -158,11 +167,11 @@ const PatientInfo = (props) => {
               </Tr>
               <Tr>
                 <Td>BloodGroup</Td>
-                <Td>{bloodGroup}</Td>
+                <Td>{patient.bloodGroup}</Td>
               </Tr>
               <Tr>
                 <Td>Weight</Td>
-                <Td>{weight}</Td>
+                <Td>{patient.weight}</Td>
               </Tr>
             </Tbody>
           </Table>
@@ -171,27 +180,13 @@ const PatientInfo = (props) => {
       <GridItem colSpan={4} bg="tomato">
         <HDraw title={"Medical Records"}>
           <List spacing={3}>
-            <ListItemDone
-              content={
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-              }
-            />
-            <ListItemDoing
-              content={
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-              }
-            />
-            <ListItemFailed
-              content={
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
-              }
-            />
+            <ListItemDone content={patient.history} />
+            <ListItemDoing content={"example 1"} />
+            <ListItemFailed content={"example 2"} />
           </List>
         </HDraw>
-        {/* TODO: Search for a better term than Scans */}
         <HDraw title={"Related Scans"}>
-          {/* <li>yards</li>
-          <li>metres (m)</li> */}
+          <Image src={patient?.problem?.image} />
         </HDraw>
       </GridItem>
     </Grid>

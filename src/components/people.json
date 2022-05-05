@@ -4,12 +4,13 @@
     "doctorName": "Chetan",
     "age": "90",
     "name": "Fred",
+    "img": "/male1.jpg",
     "gender": "male",
     "weight": "75",
     "bloodGroup": "AB+",
     "history": "bilateral lower extremity edema is noted",
     "problem": {
-      "image": "https://www.auntminnie.com/user/images/content_images/pho_redir/2019_10_14_19_22_4559_2019_10_15_MR_microbleeds.jpg",
+      "image": "https://www.auntminnie.com/user/images/content_images/pho_redir/2019_10_14_19_22_4559_2019_10_15_MR_microbleeds",
       "caption": "mri brain lesion microbleed trauma"
     }
   },
@@ -21,6 +22,8 @@
     },
     "doctorName": "Amit",
     "age": "65",
+    "img": "/male2.jpg",
+
     "name": "Gertrud",
     "gender": "male",
     "weight": "91",
@@ -30,12 +33,12 @@
   {
     "id": "102",
     "problem": {
-      "image": "https://circulationfoundation.org.uk/sites/default/files/2020-10/MRA_Scan-150x150.jpg",
+      "image": "https://circulationfoundation.org.uk/sites/default/files/2020-10/MRA_Scan-150x150",
       "caption": "angiography throat"
     },
     "doctorName": "Amit",
     "age": "35",
-    "name": "Anestassia",
+    "name": "Anestass",
     "gender": "male",
     "weight": "74",
     "bloodGroup": "B+",
@@ -50,6 +53,7 @@
     "doctorName": "Amit",
     "age": "48",
     "name": "Tatiania",
+    "img": "/female13.jpg",
     "gender": "female",
     "weight": "177",
     "bloodGroup": "B-",
@@ -58,12 +62,13 @@
   {
     "id": "104",
     "problem": {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/3/30/Cerebral_angiography%2C_arteria_vertebralis_sinister_injection.JPG",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/30/Cerebral_angiography%2C_arteria_vertebralis_sinister_injection",
       "caption": "angiography xray viens"
     },
     "doctorName": "Amit",
     "age": "92",
     "name": "Annecorinne",
+    "img": "/female1.jpg",
     "gender": "female",
     "weight": "161",
     "bloodGroup": "A-",
@@ -72,12 +77,14 @@
   {
     "id": "105",
     "problem": {
-      "image": "https://els-jbs-prod-cdn.jbs.elsevierhealth.com/cms/attachment/bdf8c670-58ad-4ff7-8284-5c8a4a3db229/fx1_lrg.jpg",
+      "image": "https://els-jbs-prod-cdn.jbs.elsevierhealth.com/cms/attachment/bdf8c670-58ad-4ff7-8284-5c8a4a3db229/fx1_lrg",
       "caption": "endoscopy gastrointestinal"
     },
     "doctorName": "Amit",
     "age": "18",
-    "name": "Maurene",
+    "name": "Mauren",
+    "img": "/male3.jpg",
+
     "gender": "male",
     "weight": "88",
     "bloodGroup": "O-",
@@ -92,6 +99,7 @@
     "doctorName": "Amit",
     "age": "23",
     "name": "Lucille",
+    "img": "/female2.jpg",
     "gender": "female",
     "weight": "104",
     "bloodGroup": "A+",
@@ -100,12 +108,13 @@
   {
     "id": "107",
     "problem": {
-      "image": "https://i.ytimg.com/vi/DUVDKoKSEkU/hqdefault.jpg",
+      "image": "",
       "caption": "stomach examination"
     },
     "doctorName": "Chetan",
     "age": "55",
     "name": "Janis",
+    "img": "/female3.jpg",
     "gender": "female",
     "weight": "157",
     "bloodGroup": "B-",
@@ -114,12 +123,14 @@
   {
     "id": "108",
     "problem": {
-      "image": "https://www.sirtex.com/media/168649/magneticresonanceimagingscan.jpg",
+      "image": "https://www.sirtex.com/media/168649/magneticresonanceimagingscan",
       "caption": "liver tumor ct cat"
     },
     "doctorName": "Chetan",
     "age": "31",
-    "name": "Elmira",
+    "name": "Elmir",
+    "img": "/male4.jpg",
+
     "gender": "male",
     "weight": "156",
     "bloodGroup": "A+",
@@ -128,12 +139,14 @@
   {
     "id": "109",
     "problem": {
-      "image": "https://gut.bmj.com/content/gutjnl/57/2/144/F1.large.jpg",
+      "image": "https://gut.bmj.com/content/gutjnl/57/2/144/F1.large",
       "caption": "liver cyst top bottom left cat ct"
     },
     "doctorName": "Chetan",
     "age": "95",
-    "name": "Caryl",
+    "name": "Cary",
+    "img": "/male5.jpg",
+
     "gender": "male",
     "weight": "171",
     "bloodGroup": "O-",
@@ -142,12 +155,14 @@
   {
     "id": "110",
     "problem": {
-      "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Leberabszess_-_CT_axial_PV.jpg",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Leberabszess_-_CT_axial_PV",
       "caption": "liver left abscess pus in portal vein cat ct"
     },
     "doctorName": "Amit",
     "age": "30",
-    "name": "Goldie",
+    "name": "Goldi",
+    "img": "/male6.jpg",
+
     "gender": "male",
     "weight": "112",
     "bloodGroup": "B+",
@@ -162,6 +177,7 @@
     "doctorName": "Chetan",
     "age": "99",
     "name": "Esmeralda",
+    "img": "/female4.jpg",
     "gender": "female",
     "weight": "143",
     "bloodGroup": "O-",
@@ -175,7 +191,9 @@
     },
     "doctorName": "Chetan",
     "age": "59",
-    "name": "Vinita",
+    "name": "Vinit",
+    "img": "/male7.jpg",
+
     "gender": "male",
     "weight": "135",
     "bloodGroup": "AB+",
@@ -184,12 +202,14 @@
   {
     "id": "113",
     "problem": {
-      "image": "https://medlineplus.gov/ency/images/ency/fullsize/1159.jpg",
+      "image": "https://medlineplus.gov/ency/images/ency/fullsize/1159",
       "caption": "cyst cat ct"
     },
     "doctorName": "Chetan",
     "age": "54",
-    "name": "Ilse",
+    "name": "Ils",
+    "img": "/male8.jpg",
+
     "gender": "male",
     "weight": "70",
     "bloodGroup": "AB-",
@@ -198,12 +218,13 @@
   {
     "id": "114",
     "problem": {
-      "image": "https://user-images.githubusercontent.com/23381512/166836047-86f8d0dc-2116-4dbb-a1db-5012412ef2c7.png)",
+      "image": "https://user-images.githubusercontent.com/23381512/166836047-86f8d0dc-2116-4dbb-a1db-5012412ef2c7.png",
       "caption": "ultrasound stomach"
     },
     "doctorName": "Chetan",
     "age": "57",
     "name": "Anallese",
+    "img": "/female5.jpg",
     "gender": "female",
     "weight": "70",
     "bloodGroup": "O+",
@@ -218,6 +239,8 @@
     "doctorName": "Amit",
     "age": "50",
     "name": "Olwen",
+    "img": "/male9.jpg",
+
     "gender": "male",
     "weight": "168",
     "bloodGroup": "B-",
@@ -232,6 +255,8 @@
     "doctorName": "Amit",
     "age": "28",
     "name": "Edyth",
+    "img": "/male1.jpg",
+
     "gender": "male",
     "weight": "68",
     "bloodGroup": "A+",
@@ -245,8 +270,10 @@
     },
     "doctorName": "Amit",
     "age": "95",
-    "name": "Sallie",
+    "name": "Sal",
     "gender": "male",
+    "img": "/male2.jpg",
+
     "weight": "123",
     "bloodGroup": "O+",
     "history": "acute gastrointestinal bleed, and the hemoglobin drops from 12 g/dL to 7.5 g/dL"
@@ -260,6 +287,7 @@
     "doctorName": "Amit",
     "age": "86",
     "name": "Concettina",
+    "img": "/female6.jpg",
     "gender": "female",
     "weight": "174",
     "bloodGroup": "AB+",
@@ -273,7 +301,9 @@
     },
     "doctorName": "Chetan",
     "age": "85",
-    "name": "Janenna",
+    "name": "Janen",
+    "img": "/male3.jpg",
+
     "gender": "male",
     "weight": "151",
     "bloodGroup": "B-",
@@ -287,7 +317,9 @@
     },
     "doctorName": "Chetan",
     "age": "65",
-    "name": "Taffy",
+    "name": "Taff",
+    "img": "/male4.jpg",
+
     "gender": "male",
     "weight": "126",
     "bloodGroup": "A+",
@@ -301,7 +333,9 @@
     },
     "doctorName": "Amit",
     "age": "62",
-    "name": "Delilah",
+    "name": "Deepak",
+    "img": "/male6.jpg",
+
     "gender": "male",
     "weight": "103",
     "bloodGroup": "A+",
@@ -316,6 +350,7 @@
     "doctorName": "Chetan",
     "age": "80",
     "name": "Daphne",
+    "img": "/female7.jpg",
     "gender": "female",
     "weight": "64",
     "bloodGroup": "O-",
@@ -330,6 +365,7 @@
     "doctorName": "Amit",
     "age": "49",
     "name": "Carol-Jean",
+    "img": "/femal8.jpg",
     "gender": "female",
     "weight": "134",
     "bloodGroup": "B-",
@@ -344,6 +380,7 @@
     "doctorName": "Chetan",
     "age": "93",
     "name": "Corene",
+    "img": "/female9.jpg",
     "gender": "female",
     "weight": "128",
     "bloodGroup": "A-",
@@ -352,12 +389,14 @@
   {
     "id": "125",
     "problem": {
-      "image": "https://easl.eu/wp-content/uploads/2018/10/easl-PET-scan-imaging-CLD.jpg",
+      "image": "https://easl.eu/wp-content/uploads/2018/10/easl-PET-scan-imaging-CLD",
       "caption": "liver chronic slice"
     },
     "doctorName": "Chetan",
     "age": "35",
-    "name": "Marjie",
+    "name": "Marji",
+    "img": "/male1.jpg",
+
     "gender": "male",
     "weight": "105",
     "bloodGroup": "AB+",
@@ -372,6 +411,8 @@
     "doctorName": "Amit",
     "age": "81",
     "name": "Desirae",
+    "img": "/male8.jpg",
+
     "gender": "male",
     "weight": "62",
     "bloodGroup": "A+",
@@ -380,12 +421,13 @@
   {
     "id": "127",
     "problem": {
-      "image": "https://media.sciencephoto.com/image/c0166771/800wm/C0166771-Secondary_liver_cancer,_CT_and_PET_scan.jpg",
+      "image": "https://media.sciencephoto.com/image/c0166771/800wm/C0166771-Secondary_liver_cancer,_CT_and_PET_scan",
       "caption": "liver cancer left"
     },
     "doctorName": "Amit",
     "age": "37",
     "name": "Luci",
+    "img": "/female10.jpg",
     "gender": "female",
     "weight": "135",
     "bloodGroup": "B+",
@@ -399,7 +441,9 @@
     },
     "doctorName": "Chetan",
     "age": "86",
-    "name": "Alejandra",
+    "name": "Alejander",
+    "img": "/male9.jpg",
+
     "gender": "male",
     "weight": "152",
     "bloodGroup": "A-",
@@ -414,6 +458,7 @@
     "doctorName": "Amit",
     "age": "97",
     "name": "Jsandye",
+    "img": "/female11.jpg",
     "gender": "female",
     "weight": "143",
     "bloodGroup": "A-",
@@ -428,6 +473,7 @@
     "doctorName": "Chetan",
     "age": "84",
     "name": "Annice",
+    "img": "/female12.jpg",
     "gender": "female",
     "weight": "155",
     "bloodGroup": "AB+",

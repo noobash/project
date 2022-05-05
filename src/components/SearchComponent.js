@@ -1,14 +1,15 @@
+import Fuse from "fuse.js";
 import React, { useState } from "react";
 import styled from "styled-components";
 import ScanComponent from "./ScanComponent";
-import ModalComponent from "./ModalComponent"
+import ModalComponent from "./ModalComponent";
 import MovieInfoComponent from "./MovieInfoComponent";
 import PatientInfoComponent from "./PatientInfoComponent";
 import People from "./user.json";
-import { GiHamburgerMenu } from "react-icons/gi"
+import { GiHamburgerMenu } from "react-icons/gi";
 import { db } from "../fire";
-
-
+import { Image, VStack } from "@chakra-ui/react";
+import PeopleList from "./people.json";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -77,7 +78,7 @@ const DropdownContent = styled.div`
   position: absolute;
   background-color: #f9f9f9;
   min-width: 98px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 `;
 
@@ -119,16 +120,11 @@ const DropdownContentA = styled.a`
 `;
 
 const LogoDiv = styled.div`
-  visibility: ${props => props.vis};
+  visibility: ${(props) => props.vis};
 `;
 
-const getRandomPerson = () => {
-  const s = People["results"];
-  return s[Math.floor(Math.random() * s.length)];
-};
-
 const SearchComponent = (props) => {
-  const {handleLogout} =  props;
+  const { handleLogout } = props;
   const [searchQuery, updateSearchQuery] = useState("");
 
   const [movieList, updateMovieList] = useState([]);
@@ -138,49 +134,36 @@ const SearchComponent = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [showLogo, setShowLogo] = useState(true);
   const [patientData, updatePatientData] = useState(null);
-
-  const fetchData = async (searchString) => {
-    const path = "/Data/";
-    updatePatientData(null);
-    setShowLogo(true);
-    let images = [];
-    if (searchString === "mri") {
-      const cur_path = path + "MRI/";
-      for (let i = 1; i <= 10; ++i) {
-        let x = cur_path + i + ".png";
-        images.push(x);
-      }
-    } else if (searchString === "ultrasound") {
-      const cur_path = path + "Ultrasound/";
-      for (let i = 1; i <= 10; ++i) {
-        let x = cur_path + i + ".png";
-        images.push(x);
-      }
-    } else if(searchString.length > 0) {
-      const patientsRecord = db.collection("Patients_Record");  
-      console.log(searchString);
-      patientsRecord.where("name","==",searchString).limit(1).get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            setShowLogo(false);
-            updatePatientData(doc.data());
-          });
-        })
-        .catch((error) => {
-          console.log("Error getting documents: ", error);
-        });
-    }
-    updateMovieList(images);
+  const fuse = new Fuse(PeopleList, {
+    includeScore: true,
+    keys: ["doctorName", "history", "name", "problem.caption"],
+  });
+  // const fuse = new Fuse(characters, {
+  //   keys: [
+  //     'name',
+  //     'company',
+  //     'species'
+  //   ],
+  //   includeScore: true
+  // });
+  const mock = (value, timeout) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (value) {
+          // resolve(updatePatientData(fuse.search(e.target.value)));
+          resolve(updatePatientData(fuse.search(value)));
+        } else {
+          reject({ message: "Error" });
+        }
+      }, timeout);
+    });
   };
 
-  const onTextChange = (e) => {
+  const onTextChange = async (e) => {
     onMovieSelect("");
-    clearTimeout(timeoutId);
     updateSearchQuery(e.target.value);
-    const timeout = setTimeout(() => fetchData(e.target.value.toLowerCase()), 500);
-    updateTimeoutId(timeout);
+    return mock(e.target.value, 3000);
+    // updatePatientData(fuse.search(e.target.value));
   };
   return (
     <Container>
@@ -197,49 +180,98 @@ const SearchComponent = (props) => {
             onChange={onTextChange}
           />
         </SearchBox>
-          <NavDropdown >
-          <DropdownButton>Menu <GiHamburgerMenu></GiHamburgerMenu></DropdownButton>
-            <DropdownContent >
-              <DropdownContentA onClick={() => {setModalOpen(true); setShowLogo(false);}}>Add Patient</DropdownContentA>
-              <DropdownContentA onClick={handleLogout}>LogOut</DropdownContentA>
-            </DropdownContent>
-          </NavDropdown>
+        <NavDropdown>
+          <DropdownButton>
+            Menu <GiHamburgerMenu></GiHamburgerMenu>
+          </DropdownButton>
+          <DropdownContent>
+            <DropdownContentA
+              onClick={() => {
+                setModalOpen(true);
+                setShowLogo(false);
+              }}
+            >
+              Add Patient
+            </DropdownContentA>
+            <DropdownContentA onClick={handleLogout}>LogOut</DropdownContentA>
+          </DropdownContent>
+        </NavDropdown>
       </Header>
-      {modalOpen && <ModalComponent setOpenModal={setModalOpen} setShowLogo={setShowLogo} />}
-      {selectedMovie && (
+      {modalOpen && (
+        <ModalComponent setOpenModal={setModalOpen} setShowLogo={setShowLogo} />
+      )}
+      {/* {selectedMovie && (
         <MovieInfoComponent
           selectedMovie={selectedMovie}
           onMovieSelect={onMovieSelect}
         />
-      )}
-      {patientData && <PatientInfoComponent 
-        name={patientData.name}
-        id={patientData.id}
-        age={patientData.age}
-        weight={patientData.weight}
-        gender={patientData.gender}
-        bloodGroup={patientData.blood_group}
-        diagonosis={patientData.diagonosis}
-        />}
+      )} */}
+      {/* {patientData && (
+        <PatientInfoComponent
+          name={patientData.name}
+          id={patientData.id}
+          age={patientData.age}
+          weight={patientData.weight}
+          gender={patientData.gender}
+          bloodGroup={patientData.blood_group}
+          diagonosis={patientData.diagonosis}
+        />
+      )} */}
       <ScanListContainer>
-        {movieList?.length ? (
-          movieList.map((movie) => {
-            const person = getRandomPerson();
+        {patientData?.length ? (
+          patientData.map((movie) => {
+            const patient = movie.item;
+            console.log(patient?.problem?.image, "haha");
             return (
-              <ScanComponent
-                key={movie}
-                movie={movie}
-                onMovieSelect={onMovieSelect}
-                name={person.name.title + person.name.first}
-                location={person.location.state}
-                searchQuery={searchQuery}
-              />
+              <VStack>
+                <Image
+                  // onClick={(window.location.href = `patient/${patient.id}`)}
+                  boxSize="150px"
+                  src={patient?.problem?.image}
+                  alt="failed to load image"
+                />
+                <div>
+                  <li>
+                    <a href={`patient/${patient.id}`}>
+                      PatientID: {patient.id}
+                    </a>
+                  </li>
+                  <li>PatientName: {patient.name}</li>
+                </div>
+              </VStack>
             );
+            // const person = getRandomPerson();
+            // return (
+            //   <ScanComponent
+            //     key={movie}
+            //     movie={movie}
+            //     onMovieSelect={onMovieSelect}
+            //     name={person.name.title + person.name.first}
+            //     location={person.location.state}
+            //     searchQuery={searchQuery}
+            //   />
+            // );
           })
         ) : (
-          <LogoDiv vis={showLogo? "visible":"hidden"} style={{display:"flex", flexDirection:"column", alignItems:"center", verticalAlign:"middle" }}>
+          <LogoDiv
+            vis={showLogo ? "visible" : "hidden"}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              verticalAlign: "middle",
+            }}
+          >
             <Placeholder src="/react-doc-app/doc-icon.png" />
-            <h6 style={{marginLeft:"auto", marginRight:"auto", opacity:"50%"}}>Search using patient name or artifacts</h6>
+            <h6
+              style={{
+                marginLeft: "auto",
+                marginRight: "auto",
+                opacity: "50%",
+              }}
+            >
+              Search using patient name or artifacts
+            </h6>
           </LogoDiv>
         )}
       </ScanListContainer>
