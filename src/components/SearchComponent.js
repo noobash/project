@@ -136,6 +136,7 @@ const SearchComponent = (props) => {
   const [patientData, updatePatientData] = useState(null);
   const fuse = new Fuse(PeopleList, {
     includeScore: true,
+    minMatchCharLength: 3,
     keys: ["doctorName", "history", "name", "problem.caption"],
   });
   // const fuse = new Fuse(characters, {
